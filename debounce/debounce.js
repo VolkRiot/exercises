@@ -5,7 +5,6 @@ function debounce(func, time) {
     var funcRef = () => {
       timeout = null;
       func.apply(this, arguments);
-      started = false;
     };
 
     clearTimeout(timeout);
