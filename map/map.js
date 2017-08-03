@@ -1,15 +1,14 @@
 function map(arr, cb) {
-  var scope = this;
-
   if (arr.length === 0) {
     return arr;
   }
 
-  var final = [];
+  var final = [...arr];
 
-  arr.forEach((elm, i, array) => {
-    final.push(cb.call(scope, elm, i, array));
-  });
+  for (let i = 0; i < arr.length; i++) {
+    final[i] = cb.call(this, arr[i], i, arr);
+  }
+
   return final;
 }
 
