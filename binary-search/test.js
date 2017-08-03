@@ -1,5 +1,5 @@
 var assert = require('assert');
-var binarySearch = require('./');
+var binarySearch = require('./binary');
 
 var generateRandomNumberArray = function(arrayLength) {
   var arr = new Array(arrayLength);
@@ -7,10 +7,9 @@ var generateRandomNumberArray = function(arrayLength) {
     arr[i] = Math.random();
   }
   return arr.sort();
-}
+};
 
 describe('binarySearch', function() {
-
   it('works on an empty array', function() {
     var arr = [];
     var index = binarySearch(arr, 'elem');
@@ -58,7 +57,7 @@ describe('binarySearch', function() {
           get: function() {
             lookups[i] = true;
             return proxyArray[i];
-          },
+          }
         });
       })(i);
     }
@@ -68,7 +67,4 @@ describe('binarySearch', function() {
     assert.equal(index, indexOfElement);
     assert.equal(Object.keys(lookups).length, 13);
   });
-
-
-
 });
