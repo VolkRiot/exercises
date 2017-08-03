@@ -14,7 +14,7 @@ const sort = arr => {
     rest[i] > pivVal ? higher.push(rest[i]) : lower.push(rest[i]);
   }
 
-  return [].concat(sort(lower), pivVal, sort(higher));
+  return [...sort(lower), pivVal, ...sort(higher)];
 };
 
 module.exports = sort;
