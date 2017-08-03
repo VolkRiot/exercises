@@ -6,10 +6,9 @@ Array.prototype.sort = function() {
 };
 
 var assert = require('assert');
-var sort = require('./');
+var sort = require('./sort');
 
 describe('sort', function() {
-
   it('will sort an array', function() {
     var arr = [5, 1, 2, 4, 3];
     nativeSortCalled = false;
@@ -34,5 +33,4 @@ describe('sort', function() {
     }
     assert(!nativeSortCalled);
   });
-
 });
