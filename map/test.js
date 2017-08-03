@@ -5,17 +5,16 @@ var calledNativeMap;
 Array.prototype.map = function() {
   calledNativeMap = true;
   return NativeMap.apply(this, arguments);
-}
+};
 
-var map = require('./');
-
-
+var map = require('./map');
 
 describe('map', function() {
-
   it('should not use the native map', function() {
     calledNativeMap = false;
-    map(['x'], function(x) { return x; });
+    map(['x'], function(x) {
+      return x;
+    });
     assert(!calledNativeMap);
   });
 
@@ -74,9 +73,13 @@ describe('map', function() {
     var ctx;
     var arr = [5];
 
-    map(arr, function() {
-      ctx = this;
-    }, 3);
+    map(
+      arr,
+      function() {
+        ctx = this;
+      },
+      3
+    );
 
     assert.equal(ctx, 3);
   });
