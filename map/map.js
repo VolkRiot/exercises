@@ -1,6 +1,8 @@
 'use strict';
 
-const map = (arr, cb) => {
+const map = (arr, cb, newScope = undefined) => {
+  let scope = newScope ? newScope : this;
+
   if (arr.length === 0) {
     return arr;
   }
@@ -8,7 +10,7 @@ const map = (arr, cb) => {
   var final = [...arr];
 
   for (let i = 0; i < arr.length; i++) {
-    final[i] = cb.call(this, arr[i], i, arr);
+    final[i] = cb.call(scope, arr[i], i, arr);
   }
 
   return final;
