@@ -1,4 +1,6 @@
-function map(arr, cb) {
+'use strict';
+
+const map = (arr, cb) => {
   if (arr.length === 0) {
     return arr;
   }
@@ -10,19 +12,19 @@ function map(arr, cb) {
   }
 
   return final;
-}
+};
 
-// var ctx;
-// var arr = [5];
-//
-// map(
-//   arr,
-//   function() {
-//     ctx = this;
-//   },
-//   3
-// );
-//
-// assert.equal(ctx, 3);
+var ctx;
+var arr = [5];
+
+map(
+  arr,
+  function() {
+    ctx = this;
+  },
+  3
+);
+
+console.log(ctx);
 
 module.exports = map;
